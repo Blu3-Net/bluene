@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueNet - Explorando el Océano</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+     <!-- Contenedor Login -->
+    <div id="login-container">
+        <div class="login-box">
+            <img src="Bluenet.png" alt="Logo" class="login-logo" />
+            <input type="email" id="email" placeholder="Correo electrónico" />
+            <input type="password" id="password" placeholder="Contraseña" />
+            <button id="login-btn">Iniciar sesión</button>
+            <p id="login-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Contenido principal de la página (oculto hasta login correcto) -->
+    <div id="main-content" style="display:none;">
+    
+    <div class="background-image"></div>
+    
+    <!-- Botón para abrir el menú -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</button>
+    
+    <!-- Botón del carrito -->
+    <button id="cartButton" class="menu-toggle" style="left: 60px;" aria-label="Ver carrito">🛒</button>
+    
+    <!-- Menú lateral -->
+    <nav id="menuLateral" class="menu-lateral" aria-label="Menú de navegación">
+    <h2>_______Menú</h2>
+    <ul>
+        <li><button class="menu-btn home-btn" id="homeButton">Inicio</button></li>
+        <li><button class="menu-btn" data-ocean="artic">Océano Ártico</button></li>
+        <li><button class="menu-btn" data-ocean="pacifico">Océano Pacífico</button></li>
+        <li><button class="menu-btn" data-ocean="atlantico">Océano Atlántico</button></li>
+        <li><button class="menu-btn" data-ocean="indico">Océano Índico</button></li>
+        <li><button class="menu-btn" data-ocean="antartico">Océano Antártico</button></li>
+    </ul>
+    </nav>
+    <main>
+       <div id="welcome-content">
+            <div class="logo-container">
+                <img src="Bluenet.png" alt="BlueNet Logo" class="logo">
+                <p class="slogan">Stay connected to the Blue</p>
+            </div>
+            <h1>Bienvenido a BlueNet</h1>
+            <p class="intro-text">
+                BlueNet te invita a sumergirte en los secretos mejor guardados del océano. 
+                Descubre sus fascinantes características, explora sus zonas ocultas y maravíllate 
+                 con la asombrosa diversidad de la vida marina que habita en las profundidades.
+            </p>
+
+            <div class="social-buttons">
+            <a href="https://i.pinimg.com/736x/e6/1e/ee/e61eee87d888f1627ad4065fe6c8bff2.jpg" target="_blank" class="social-btn facebook" aria-label="Facebook">
+             <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/acosta_jur23771" target="_blank" class="social-btn twitter" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+         <a href="https://www.instagram.com/blue.net_?igsh=MTF4bnZ2dGowd3gycA==" target="_blank" class="social-btn instagram" aria-label="Instagram">
+             <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@TheBlueNet123" target="_blank" class="social-btn youtube" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+</div>
+        </div>
+        <!-- Sección del carrito -->
+        <section id="cart-section" class="contenido-oceano" style="display:none;">
+    <h2 class="oceano-titulo">Experiencias Oceánicas</h2>
+    <p class="oceano-descripcion">Reserva estos viajes para explorar la vida marina en los océanos del mundo. Ofrecemos desde viajes baratos hasta expediciones de lujo todo incluido, con el mejor turismo ambiental sostenible. Descubre playas hermosas, ocean views impresionantes y la increíble biodiversidad de los océanos Pacífico y Atlántico.</p>
+            
+            <div id="cart-items">
+                <!-- Los ítems del carrito se agregarán aquí dinámicamente -->
+            </div>
+            
+            <div class="oceano-datos">
+                <div class="dato-item">
+                    <span class="dato-titulo">Expedición Ártica:</span> $500 - Viaje de 5 días al círculo polar ártico
+                    <button class="add-to-cart" data-name="Expedición Ártica" data-price="500">Añadir</button>
+                </div>
+                <div class="dato-item">
+                    <span class="dato-titulo">Crucero Pacífico:</span> $800 - 7 días navegando las islas del Pacífico
+                    <button class="add-to-cart" data-name="Crucero Pacífico" data-price="800">Añadir</button>
+                </div>
+                <div class="dato-item">
+                    <span class="dato-titulo">Viaje Científico Atlántico:</span> $650 - Expedición de investigación marina
+                    <button class="add-to-cart" data-name="Viaje Científico Atlántico" data-price="650">Añadir</button>
+                </div>
+                <div class="dato-item">
+                    <span class="dato-titulo">Safari Marino Índico:</span> $700 - Avistamiento de vida marina exótica
+                    <button class="add-to-cart" data-name="Safari Marino Índico" data-price="700">Añadir</button>
+                </div>
+                <div class="dato-item">
+                    <span class="dato-titulo">Exploración Antártica:</span> $900 - Aventura de 10 días en la Antártida
+                    <button class="add-to-cart" data-name="Exploración Antártica" data-price="900">Añadir</button>
+                </div>
+            </div>
+            
+            <div id="cart-summary" style="display: none;">
+                <h3>Tu Carrito</h3>
+                <div id="cart-contents"></div>
+                <div class="cart-total">Total: $<span id="cart-total">0</span></div>
+                <button id="checkout-btn" class="checkout-btn">Proceder al Pago</button>
+            </div>
+        </section>
+        
+        <!-- Contenedor para la información de los océanos -->
+        <section id="ocean-info" class="ocean-info" aria-live="polite">
+            <!-- La información se cargará aquí dinámicamente -->
+        </section>
+    </main>
+
+    <script src="form.js"></script>
+</body>
+</html>

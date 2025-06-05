@@ -1,0 +1,404 @@
+:root {
+    /* Paleta de colores BlueNet */
+    --deep-blue: #001f3f;       /* Azul oscuro principal */
+    --ocean-blue: #0074D9;      /* Azul vibrante */
+    --sky-blue: #7FDBFF;        /* Azul claro/cielo */
+    --aqua: #39CCCC;            /* Agua marina */
+    --navy: #003366;            /* Azul marino */
+    --teal: #2ECC40;            /* Verde azulado */
+    --white: #FFFFFF;           /* Blanco puro */
+    --light-gray: #F5F5F5;      /* Gris claro */
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--white);
+    background-color: var(--deep-blue);
+    transition: margin-left 0.3s ease;
+}
+
+body.menu-abierto {
+    margin-left: 200px;
+}
+
+.background-image {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    position: relative;
+}
+
+/* Estilos para el logo */
+.logo-container {
+    text-align: center;
+    margin: 20px 0 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 0 12px rgba(127, 219, 255, 0.6));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Estilos para el eslogan */
+.slogan {
+    color: var(--sky-blue);
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin: 10px 0 0;
+    text-shadow: 0 0 6px rgba(127, 219, 255, 0.6);
+    letter-spacing: 0.5px;
+    font-style: italic;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.slogan:after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--sky-blue), transparent);
+    margin: 8px auto 0;
+    opacity: 0.7;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: var(--sky-blue);
+}
+
+.intro-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Menú */
+.menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    background-color: var(--ocean-blue);
+    color: var(--white);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.cart-btn {
+    left: 60px;
+}
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    height: 100%;
+    background-color: var(--navy);
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 999;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+}
+
+.menu-lateral.mostrar {
+    left: 0;
+}
+
+.menu-lateral h2 {
+    color: var(--sky-blue);
+    text-align: center;
+    border-bottom: 1px solid var(--sky-blue);
+    padding-bottom: 10px;
+}
+
+.menu-btn {
+    display: block;
+    margin: 15px 0;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--ocean-blue) ;
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: var(--navy);
+    transform: translateX(5px);
+}
+
+.home-btn {
+    background-color: var(--ocean-blue) !important;
+    margin-bottom: 20px;
+}
+
+.home-btn:hover {
+    background-color: var(--navy) !important;
+}
+
+/* Contenido de océanos */
+.contenido-oceano {
+    display: none;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(0, 42, 85, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.contenido-oceano.activo {
+    display: block;
+}
+
+.oceano-titulo {
+    color: var(--sky-blue);
+    margin-top: 0;
+    border-bottom: 2px solid var(--ocean-blue);
+    padding-bottom: 10px;
+}
+
+.oceano-imagen {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+    border: 2px solid var(--sky-blue);
+}
+
+.oceano-datos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.dato-item {
+    background-color: var(--ocean-blue);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dato-titulo {
+    font-weight: bold;
+    color: var(--aqua);
+}
+
+.oceano-descripcion {
+    line-height: 1.7;
+    text-align: justify;
+}
+
+/* Carrito */
+.cart-item {
+    background-color: rgba(0, 116, 217, 0.2);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border-left: 4px solid var(--sky-blue);
+}
+
+.cart-item h3 {
+    margin-top: 0;
+    color: var(--sky-blue);
+}
+
+.cart-item p {
+    margin-bottom: 5px;
+}
+
+.cart-item button {
+    background-color: #FF4136;
+    color: var(--white);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.cart-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    color: var(--sky-blue);
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--teal);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #13c7a9;
+}
+
+/* Botón volver */
+.back-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--ocean-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.back-btn:hover {
+    background-color: #00a6e7;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.social-btn i {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Colores específicos para cada red social */
+.facebook { background-color: #1877F2; }
+.twitter { background-color: #1DA1F2; }
+.instagram { 
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+.youtube { background-color: #FF0000; }
+
+/* Efecto al pasar el mouse */
+.social-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+}
+
+#login-container {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--deep-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  color: var(--white);
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-box {
+  background-color: rgba(0, 31, 63, 0.95);
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 116, 217, 0.8);
+  width: 320px;
+  text-align: center;
+}
+
+.login-logo {
+  width: 120px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px rgba(127, 219, 255, 0.7));
+}
+
+#email, #password {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+#login-btn {
+  background-color: var(--ocean-blue);
+  color: var(--white);
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#login-btn:hover {
+  background-color: var(--navy);
+}
+
+.error-message {
+  color: #FF4136;
+  margin-top: 12px;
+  font-weight: bold;
+  min-height: 20px;
+}
